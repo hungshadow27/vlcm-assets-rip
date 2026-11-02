@@ -1,0 +1,87 @@
+package game.skin
+{
+   public class XiaTianZhiEnSkin
+   {
+      
+      public static var skin:Object = {
+         "name":"XiaTianZhiEn",
+         "type":"Container",
+         "x":0,
+         "y":0,
+         "width":662,
+         "height":677,
+         "children":[{
+            "name":"xiatianzhien",
+            "type":"Container",
+            "x":0,
+            "y":0,
+            "width":662,
+            "height":677,
+            "children":[{
+               "name":"YBZLGBAN",
+               "type":"SimpleButton",
+               "x":598,
+               "y":107,
+               "width":35,
+               "height":36,
+               "children":[{
+                  "name":"image",
+                  "type":"Image",
+                  "x":0,
+                  "y":0,
+                  "width":35,
+                  "height":36,
+                  "normal":{
+                     "link":"XiaTianZhiEn.CloseNormall",
+                     "x":0,
+                     "y":0,
+                     "width":35,
+                     "height":36
+                  },
+                  "over":{
+                     "link":"XiaTianZhiEn.CloseHoverl",
+                     "x":0,
+                     "y":0,
+                     "width":35,
+                     "height":36
+                  },
+                  "down":{
+                     "link":"XiaTianZhiEn.CloseClickl",
+                     "x":0,
+                     "y":0,
+                     "width":35,
+                     "height":36
+                  }
+               }]
+            },{
+               "name":"ditu",
+               "type":"Image",
+               "x":0,
+               "y":0,
+               "width":662,
+               "height":677,
+               "normal":{
+                  "link":"XiaTianZhiEn.Layer17",
+                  "x":0,
+                  "y":0,
+                  "width":662,
+                  "height":677
+               }
+            },{
+               "name":"dragBar",
+               "type":"DragBar",
+               "x":0,
+               "y":0,
+               "width":660,
+               "height":152
+            }]
+         }]
+      };
+      
+      public function XiaTianZhiEnSkin()
+      {
+         super();
+      }
+   }
+}
+

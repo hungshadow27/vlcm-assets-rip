@@ -1,0 +1,156 @@
+package game.display
+{
+   import flash.display.DisplayObject;
+   import flash.events.MouseEvent;
+   import game.base.Istate;
+   import game.common.UIState;
+   
+   public class Button extends Container implements Istate
+   {
+      
+      private var _state:String;
+      
+      private var _label:Label;
+      
+      private var _image:ScaleImage;
+      
+      private var _enabled:Boolean;
+      
+      public function Button()
+      {
+         super();
+         this.buttonMode = true;
+         this.mouseChildren = false;
+         this.enabled = true;
+      }
+      
+      private function addMouseEventListener() : void
+      {
+         addEventListener(MouseEvent.ROLL_OVER,this.onMouseEvent);
+         addEventListener(MouseEvent.ROLL_OUT,this.onMouseEvent);
+         addEventListener(MouseEvent.MOUSE_UP,this.onMouseEvent);
+         addEventListener(MouseEvent.MOUSE_DOWN,this.onMouseEvent);
+      }
+      
+      private function removeMouseEventListener() : void
+      {
+         removeEventListener(MouseEvent.ROLL_OVER,this.onMouseEvent);
+         removeEventListener(MouseEvent.ROLL_OUT,this.onMouseEvent);
+         removeEventListener(MouseEvent.MOUSE_UP,this.onMouseEvent);
+         removeEventListener(MouseEvent.MOUSE_DOWN,this.onMouseEvent);
+      }
+      
+      protected function onMouseEvent(param1:MouseEvent) : void
+      {
+         switch(param1.type)
+         {
+            case MouseEvent.ROLL_OUT:
+               this.state = UIState.STATE_NORMAL;
+               break;
+            case MouseEvent.ROLL_OVER:
+               this.state = UIState.STATE_OVER;
+               break;
+            case MouseEvent.MOUSE_DOWN:
+               this.state = UIState.STATE_DOWN;
+               break;
+            case MouseEvent.MOUSE_UP:
+               this.state = UIState.STATE_OVER;
+         }
+      }
+      
+      override public function set enabled(param1:Boolean) : void
+      {
+         this._enabled = param1;
+         if(param1 == true)
+         {
+            this.addMouseEventListener();
+            this.state = UIState.STATE_NORMAL;
+         }
+         else
+         {
+            this.removeMouseEventListener();
+            this.state = UIState.STATE_DISABLE;
+         }
+      }
+      
+      override public function get enabled() : Boolean
+      {
+         return this._enabled;
+      }
+      
+      public function set state(param1:String) : void
+      {
+         this._state = param1;
+         if(this._label)
+         {
+            this._label.state = this._state;
+         }
+         if(this._image)
+         {
+            this._image.state = this._state;
+         }
+      }
+      
+      public function get state() : String
+      {
+         return this._state;
+      }
+      
+      override protected function createVariableReference() : void
+      {
+         this._image = getChildByName("scaleImage") as ScaleImage;
+         this._label = getChildByName("label") as Label;
+      }
+      
+      public function get label() : String
+      {
+         if(this._label)
+         {
+            return this._label.text;
+         }
+         return "";
+      }
+      
+      public function set label(param1:String) : void
+      {
+         if(this._label)
+         {
+            this._label.htmlText = this.label;
+         }
+      }
+      
+      private function getChildByType(param1:Class) : DisplayObject
+      {
+         var _loc4_:DisplayObject = null;
+         var _loc2_:int = this.numChildren;
+         var _loc3_:int = 0;
+         while(_loc3_ < _loc2_)
+         {
+            _loc4_ = this.getChildAt(_loc3_);
+            if(_loc4_ is param1)
+            {
+               return _loc4_;
+            }
+            _loc3_++;
+         }
+         return null;
+      }
+      
+      override public function set width(param1:Number) : void
+      {
+         if(this._image != null)
+         {
+            this._image.width = param1;
+         }
+      }
+      
+      override public function set height(param1:Number) : void
+      {
+         if(this._image != null)
+         {
+            this._image.height = param1;
+         }
+      }
+   }
+}
+

@@ -1,0 +1,19 @@
+{
+  "name": "vlcm-asset-downloader",
+  "version": "1.0.0",
+  "description": "Tool tự động quét mã nguồn ActionScript, phân tích và tải toàn bộ assets từ CDN game Võ Lâm Chi Mộng (VLCM), giải mã .tse và chuyển đổi .swf/.tse sang .png/.jpg chuẩn.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "vlcm-tool": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "scan": "node src/cli.js scan",
+    "download": "node src/cli.js download",
+    "convert-local": "node src/cli.js convert-local"
+  },
+  "dependencies": {
+    "jpeg-js": "^0.4.4"
+  }
+}

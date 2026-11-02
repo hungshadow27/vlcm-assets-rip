@@ -1,0 +1,87 @@
+package game.skin
+{
+   public class JingGaoJieMieSkin
+   {
+      
+      public static var skin:Object = {
+         "name":"JingGaoJieMie",
+         "type":"Container",
+         "x":0,
+         "y":0,
+         "width":648,
+         "height":387,
+         "children":[{
+            "name":"jinggaojiemian",
+            "type":"Container",
+            "x":0,
+            "y":0,
+            "width":648,
+            "height":387,
+            "children":[{
+               "name":"chengfaanniu",
+               "type":"SimpleButton",
+               "x":406,
+               "y":315,
+               "width":204,
+               "height":60,
+               "children":[{
+                  "name":"image",
+                  "type":"Image",
+                  "x":0,
+                  "y":0,
+                  "width":204,
+                  "height":60,
+                  "normal":{
+                     "link":"JingGaoJieMie.chengfachangtai",
+                     "x":0,
+                     "y":0,
+                     "width":204,
+                     "height":60
+                  },
+                  "over":{
+                     "link":"JingGaoJieMie.chengfahuaguo",
+                     "x":0,
+                     "y":0,
+                     "width":204,
+                     "height":60
+                  },
+                  "down":{
+                     "link":"JingGaoJieMie.chengfadianji",
+                     "x":0,
+                     "y":0,
+                     "width":204,
+                     "height":60
+                  }
+               }]
+            },{
+               "name":"ditu",
+               "type":"Image",
+               "x":0,
+               "y":0,
+               "width":648,
+               "height":387,
+               "normal":{
+                  "link":"JingGaoJieMie.Group16",
+                  "x":0,
+                  "y":0,
+                  "width":648,
+                  "height":387
+               }
+            },{
+               "name":"dragBar",
+               "type":"DragBar",
+               "x":90,
+               "y":0,
+               "width":520,
+               "height":121
+            }]
+         }]
+      };
+      
+      public function JingGaoJieMieSkin()
+      {
+         super();
+      }
+   }
+}
+
